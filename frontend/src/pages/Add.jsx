@@ -41,7 +41,7 @@ function Add() {
     return (
         <>
             <div className='titlebar'>
-                <h1 className="title">Analyze New Company</h1>            
+                <h1 className="title" id='addTitle'>Analyze New Company</h1>            
             </div>
             <div id="addCompanyBar">
                 <form className="form">
