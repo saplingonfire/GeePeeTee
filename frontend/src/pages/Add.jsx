@@ -47,7 +47,7 @@ function Add() {
                 <form className="form">
                     <input type="text" className='inputBox' id='addCompanyInput' placeholder="Company Name" autoComplete='false'/>
                     <select id='selectIndustry' className='inputBox' autoComplete="true">
-                        <option value='' disabled defaultValue>Select an Industry</option>
+                        <option value='' disabled>Select an Industry</option>
                         {populateIndustries()}
                     </select>
                     <button id='addBtn' onClick={handleAddCompany}>Add to Queue</button>
