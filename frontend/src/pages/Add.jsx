@@ -1,9 +1,8 @@
-import { industryList } from '../components/industrylist';
-import React, { useState } from 'react';
+import { industryList } from '../components/industrylist.jsx';
 
 function Add() {
-    const [backendAvailable, updateBackendAvailable] = useState(true);
-    const backendEndpoint = 'https://httpbin.org/post';
+    
+    const backendEndpoint = import.meta.env.VITE_BACKEND_ENDPOINT;
 
     const populateIndustries = () => {
         return Object.entries(industryList).map(([industry, code]) => (
@@ -19,6 +18,11 @@ function Add() {
             console.error('Company name input field is missing');
             return;
         }
+        if (companyIndustry === 'default') {
+            console.error('Industry selection is missing');
+            return;
+        }
+
         const response = await fetch(backendEndpoint, {
             method: 'POST',
             body: JSON.stringify({
@@ -26,7 +30,8 @@ function Add() {
               industry: companyIndustry,
             }),
             headers: {
-              "Content-type": "application/json; charset=UTF-8"
+              "Content-type": "application/json; charset=UTF-8",
+              'Access-Control-Allow-Origin': '*'
             }
         });
           
@@ -35,19 +40,19 @@ function Add() {
         }
         
         const data = await response.json();
-        console.log(data.json)
+        console.log(data.json);
     };
 
     return (
         <>
             <div className='titlebar'>
-                <h1 className="title" id='addTitle'>Analyze New Company</h1>            
+                <h1 className="title">Analyze New Company</h1>            
             </div>
             <div id="addCompanyBar">
                 <form className="form">
                     <input type="text" className='inputBox' id='addCompanyInput' placeholder="Company Name" autoComplete='false'/>
-                    <select id='selectIndustry' className='inputBox' autoComplete="true">
-                        <option value='' disabled>Select an Industry</option>
+                    <select id='selectIndustry' className='inputBox' autoComplete="true" defaultValue='default'>
+                        <option value='default' disabled>Select an Industry</option>
                         {populateIndustries()}
                     </select>
                     <button id='addBtn' onClick={handleAddCompany}>Add to Queue</button>

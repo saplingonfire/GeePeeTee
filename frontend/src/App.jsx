@@ -1,6 +1,7 @@
 import Home from './pages/Home.jsx'
 import Scores from './pages/Scores.jsx'
 import Add from './pages/Add.jsx'
+import DetailedScorePage from './pages/DetailedScorePage.jsx'
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -18,6 +19,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path='Scores' element={<Scores />} />
         <Route path='Add' element={<Add />} />
+        <Route path='DetailedScorePage' element={<DetailedScorePage />} />
       </Route>,
     ),
   );
@@ -29,4 +31,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

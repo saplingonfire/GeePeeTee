@@ -3,6 +3,7 @@
 html, body ,#root{
   height: 100%;
   margin: 0;
+  width: 100%;
   padding: 0;
 }
 
@@ -112,4 +113,53 @@ button#searchBtn {
 
 #addBtn {
   background-color: rgba(40, 178, 74, 0.75);
+}
+
+.esg-scorecard {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 90%;
+  margin: 0;
+  border-radius: 10px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.align-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.align-left#scorecard-column-1 {
+  width: 25%;
+}
+
+.align-left#scorecard-column-2 {
+  width: 45%;
+}
+
+.align-left#scorecard-column-3 {
+  width: 30%;
+}
+
+h1#esg_score {
+  margin: 0;
+  font-size: 6em;
+}
+
+#company-details-title {
+  font-size: 4em;
+  margin: auto 0;
+}
+
+h3 {
+  color:rgb(105, 105, 105);
+  margin: auto 3;
+}
+
+#company-details {
+  display: flex;
+  flex-direction: column;
 }
