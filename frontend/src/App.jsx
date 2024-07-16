@@ -19,7 +19,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path='Scores' element={<Scores />} />
         <Route path='Add' element={<Add />} />
-        <Route path='Scores' element={<DetailedScorePage />} />
+        <Route path='DetailedScorePage' element={<DetailedScorePage />} />
       </Route>,
     ),
   );
