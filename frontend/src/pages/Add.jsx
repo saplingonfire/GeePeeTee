@@ -3,6 +3,8 @@ import { industryList } from '../components/industrylist.jsx';
 function Add() {
     
     const backendEndpoint = import.meta.env.VITE_BACKEND_ENDPOINT;
+    const apiPath = backendEndpoint + "/api/receive_json";
+    
 
     const populateIndustries = () => {
         return Object.entries(industryList).map(([industry, code]) => (
@@ -23,7 +25,7 @@ function Add() {
             return;
         }
 
-        const response = await fetch(backendEndpoint, {
+        const response = await fetch(apiPath, {
             method: 'POST',
             body: JSON.stringify({
               company: companyName,
