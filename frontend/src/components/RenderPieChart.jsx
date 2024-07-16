@@ -1,6 +1,8 @@
 
 import React, { useCallback, useState } from "react";
-import { PieChart, Pie, Sector } from "recharts";
+import { PieChart, Pie, Sector, Cell } from "recharts";
+
+const barColors = ['#7ec482', '#EF7F2C', '#3faad4'];
 
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
@@ -61,21 +63,22 @@ const renderActiveShape = (props) => {
         y={ey}
         textAnchor={textAnchor}
         fill="#333"
-      >{`PV ${value}`}</text>
+      >Industry Weight:</text>
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
-        dy={18}
+        dy={20}
         textAnchor={textAnchor}
         fill="#999"
+        fontSize={20}
       >
-        {`(Rate ${(percent * 100).toFixed(2)}%)`}
+        {value}
       </text>
     </g>
   );
 };
 
-export default function RenderPieChart(data) {
+export default function RenderPieChart(weights, scores) {
   const [activeIndex, setActiveIndex] = useState(0);
   const onPieEnter = useCallback(
     (_, index) => {
@@ -85,19 +88,25 @@ export default function RenderPieChart(data) {
   );
 
   return (
-    <PieChart width={600} height={400}>
+    <PieChart width={600} height={300}>
       <Pie
         activeIndex={activeIndex}
         activeShape={renderActiveShape}
-        data={data}
+        data={weights}
         cx={300}
-        cy={180}
+        cy={140}
         innerRadius={60}
         outerRadius={120}
         fill="#AD2F14"
         dataKey="value"
         onMouseEnter={onPieEnter}
-      />
+      >
+      {
+        weights.map((entry, index) => (
+          <Cell key={`cell-${index}`} fill={barColors[index]} />
+        ))
+      }
+      </Pie>
     </PieChart>
   );
 }

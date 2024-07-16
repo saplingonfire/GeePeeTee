@@ -133,20 +133,23 @@ button#searchBtn {
 }
 
 .align-left#scorecard-column-1 {
-  width: 25%;
+  width: 20%;
 }
 
 .align-left#scorecard-column-2 {
-  width: 45%;
+  width: 40%;
 }
 
 .align-left#scorecard-column-3 {
-  width: 30%;
+  width: 40%;
 }
 
-h1#esg_score {
+h1#esg-score {
+  font-size: 8em;
+}
+
+.text-no-margin {
   margin: 0;
-  font-size: 6em;
 }
 
 #company-details-title {
@@ -160,6 +163,35 @@ h3 {
 }
 
 #company-details {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin: 10px auto;
+  padding: 0;
+  border: 10px;
+  align-items: left;
+}
+
+#esg-score-details {
+  padding: 0;
+}
+
+#esg-score-details>* {
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 0 5px;
+  border-radius: 10px;
+}
+
+.home-button {
+  color:rgb(105, 105, 105);
+}
+
+.flex-row-space-between {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+  border: 10px;
 }
