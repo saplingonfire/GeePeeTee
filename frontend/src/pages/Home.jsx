@@ -25,7 +25,7 @@ function Home() {
         </form>
       </div>
       <div id='actionsBar'>
-        <Link to='/DetailedScorePage'><button>View List</button></Link>
+        <Link to='/Scores'><button>View List</button></Link>
         <Link to='/Add'><button>Add New</button></Link>
       </div>
     </>
