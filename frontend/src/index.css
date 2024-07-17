@@ -118,12 +118,12 @@ button#searchBtn {
   font-family: Arial, Helvetica, sans-serif;
   background-color: rgba(255, 255, 255, 0.75);
   width: 90%;
-  margin: 0;
+  margin: 0px;
   border-radius: 10px;
   align-self: center;
   display: flex;
-  flex-direction: column;
   padding: 10px;
+  flex-direction: column;
 }
 
 .align-left {
@@ -133,8 +133,8 @@ button#searchBtn {
 }
 
 .align-left#scorecard-column-1 {
-  padding: 10px;
   width: 20%;
+  padding: 10px;
 }
 
 .align-left#scorecard-column-2 {
@@ -204,7 +204,7 @@ h3 {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.75);
+  /* background-color: rgba(255, 255, 255, 0.75); */
   width: 90%;
   align-self: center;
   max-height: 60%;
@@ -230,4 +230,17 @@ h3 {
   height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+#companyList::-webkit-scrollbar {
+  width: 2em;
+}
+ 
+#companyList::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+ 
+#companyList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
 }
