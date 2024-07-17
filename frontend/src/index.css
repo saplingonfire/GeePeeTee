@@ -123,6 +123,7 @@ button#searchBtn {
   align-self: center;
   display: flex;
   flex-direction: column;
+  padding: 10px;
 }
 
 .align-left {
