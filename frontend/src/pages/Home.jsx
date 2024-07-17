@@ -27,7 +27,6 @@ function Home() {
       <div id='actionsBar'>
         <Link to='/Scores'><button>View List</button></Link>
         <Link to='/Add'><button>Add New</button></Link>
-        <Link to='/DetailedScorePage'><button>Test DSP</button></Link>
       </div>
     </>
   )
