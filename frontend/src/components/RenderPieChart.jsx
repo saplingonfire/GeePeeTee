@@ -94,7 +94,7 @@ export default function RenderPieChart(weights, scores) {
         activeShape={renderActiveShape}
         data={weights}
         cx={300}
-        cy={190}
+        cy={160}
         innerRadius={60}
         outerRadius={120}
         fill="#AD2F14"
