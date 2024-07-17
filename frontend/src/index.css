@@ -40,6 +40,7 @@ div#searchBar {
   height: 50px;
   display: flex;
   justify-content: center;
+  margin-bottom: 1em;
 }
 
 .form {
@@ -178,6 +179,7 @@ h3 {
 
 #esg-score-details {
   padding: 0;
+  height: 60%;
 }
 
 #esg-score-details>* {
