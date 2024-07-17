@@ -7,7 +7,7 @@ function Add() {
     
 
     const populateIndustries = () => {
-        return Object.entries(industryList).map(([industry, code]) => (
+        return Object.entries(industryList).map(([code, industry]) => (
           <option value={code} key={code}>{industry}</option>
         ));
     };      
