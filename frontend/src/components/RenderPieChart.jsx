@@ -88,13 +88,13 @@ export default function RenderPieChart(weights, scores) {
   );
 
   return (
-    <PieChart width={600} height={300}>
+    <PieChart width={600} height={400}>
       <Pie
         activeIndex={activeIndex}
         activeShape={renderActiveShape}
         data={weights}
         cx={300}
-        cy={140}
+        cy={190}
         innerRadius={60}
         outerRadius={120}
         fill="#AD2F14"
