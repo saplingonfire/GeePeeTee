@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { industryList } from '../components/industrylist.jsx';
+
 
 function Scores() {
     const endpoint = import.meta.env.VITE_MONGODB_ENDPOINT;
@@ -45,11 +47,13 @@ function Scores() {
             {documents.map((document, index) => {
               const industry_label = industryList[document.data.industry];
               return (
-              <div key={index} className="card">
-                <h2>{document.data.company}</h2>
-                <h3>{industry_label}</h3>
-                <h2>{document.data.total_score}</h2>
-              </div>
+                <div key={index} className="card">
+                  <Link to='/DetailedScorePage' state={document.data}>
+                    <h2>{document.data.company}</h2>
+                  </Link>
+                  <h3>{industry_label}</h3>
+                  <h2>{document.data.total_score}</h2>
+                </div>
             );})}
           </div>
         </div>   

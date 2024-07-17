@@ -1,19 +1,14 @@
 import RenderPieChart from "../components/RenderPieChart.jsx";
 import RenderGauge from "../components/RenderGauge.jsx";
 import RenderBarCharts from "../components/RenderBarCharts.jsx";
+import { useLocation } from 'react-router-dom';
+import { industryList } from "../components/industrylist.jsx";
+import React from 'react';
 
+export default function DetailedScorePage() {
+    const companyScore = useLocation().state;
 
-function DetailedScorePage() {
-    const companyScore = {
-        company: 'Apple Inc',
-        industry: 'Computers & Peripherals and Office Electronics',
-        industry_code: 'THQ',
-        total_score: 50,
-        environmental: {score: 23, dimension_total: 35},
-        social: {score: 14, dimension_total: 30},
-        governance: {score: 13, dimension_total: 35},
-        timestamp: '15-07-2024',
-    }
+    const industryLabel = industryList[companyScore.industry];
 
     const dimension_weights = [
         { name: "Environmental", value: companyScore.environmental.dimension_total },
@@ -65,8 +60,8 @@ function DetailedScorePage() {
                 <div id='company-details'>
                     <h1 id='company-details-title'>{companyScore.company} ESG Score</h1>
                     <div className='flex-row-space-between'>
-                        <h3 id='company-details-industry'>Industry: {companyScore.industry_code} {companyScore.industry}</h3>
-                        <a href='/'><button class='home-button'>{'< Back to Companies'}</button></a>
+                        <h3 id='company-details-industry'>Industry: {companyScore.industry} {industryLabel}</h3>
+                        <a href='/Scores'><button class='home-button'>{'< Back to Companies'}</button></a>
                     </div>
                 </div>
                 <div id='esg-score-details'>
@@ -79,7 +74,7 @@ function DetailedScorePage() {
                     </div>
                     <div className='align-left' id='scorecard-column-2'>
                         <h1>Industry ESG Dimension Breakdown</h1>
-                        <h3> These are the ESG dimension weights particular to the industry: <br/>{companyScore.industry}</h3>
+                        <h3> These are the ESG dimension weights particular to the industry: <br/>{industryLabel}</h3>
                         {RenderPieChart(dimension_weights)}
                     </div>
                     <div className='align-left' id='scorecard-column-3'>
@@ -92,5 +87,3 @@ function DetailedScorePage() {
         </>
     )
 }
-
-export default DetailedScorePage;
