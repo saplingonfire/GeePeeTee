@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { industryList } from '../components/industrylist.jsx';
 
 function Scores() {
     const endpoint = import.meta.env.VITE_MONGODB_ENDPOINT;
@@ -37,20 +38,20 @@ function Scores() {
     
     return (
         <div id='Scores'>
-        <div className='titleBar'>
-            <h1 className='title'>All Analyzed Companies</h1>
-        </div>
-        <div id="companyList">
-          {documents.map((document, index) => {
-            console.log(document)
-            return (
-            <div key={index} className="card">
-              <h2>{document.data.company}</h2>
-              <h3>{document.data.industry}</h3>
-              <h2>{document.data.total_score}</h2>
-            </div>
-          );})}
-        </div>
+          <div className='titleBar'>
+              <h1 className='title'>All Analyzed Companies</h1>
+          </div>
+          <div id="companyList">
+            {documents.map((document, index) => {
+              const industry_label = industryList[document.data.industry];
+              return (
+              <div key={index} className="card">
+                <h2>{document.data.company}</h2>
+                <h3>{industry_label}</h3>
+                <h2>{document.data.total_score}</h2>
+              </div>
+            );})}
+          </div>
         </div>   
       ); 
 };
