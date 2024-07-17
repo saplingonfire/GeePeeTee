@@ -61,7 +61,7 @@ export default function DetailedScorePage() {
                     <h1 id='company-details-title'>{companyScore.company} ESG Score</h1>
                     <div className='flex-row-space-between'>
                         <h3 id='company-details-industry'>Industry: {companyScore.industry} {industryLabel}</h3>
-                        <a href='/Scores'><button class='home-button'>{'< Back to Companies'}</button></a>
+                        <a href='/Scores'><button class='home-button' id='dsp-to-home'>{'Back to Companies'}</button></a>
                     </div>
                 </div>
                 <div id='esg-score-details'>

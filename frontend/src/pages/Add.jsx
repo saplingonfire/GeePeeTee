@@ -3,8 +3,7 @@ import { industryList } from '../components/industrylist.jsx';
 function Add() {
     
     const backendEndpoint = import.meta.env.VITE_BACKEND_ENDPOINT;
-    const apiPath = backendEndpoint + "/api/receive_json";
-    
+    const apiPath = backendEndpoint + '/api/receive_json';
 
     const populateIndustries = () => {
         return Object.entries(industryList).map(([code, industry]) => (
@@ -42,7 +41,7 @@ function Add() {
         }
         
         const data = await response.json();
-        console.log(data.json);
+        console.log(data);
     };
 
     return (
@@ -59,6 +58,9 @@ function Add() {
                     </select>
                     <button id='addBtn' onClick={handleAddCompany}>Add to Queue</button>
                 </form>
+            </div>
+            <div>
+                <a href='/' id='add-to-home'><button class='home-button'>{'Back to Home'}</button></a>
             </div>
         </> 
     )

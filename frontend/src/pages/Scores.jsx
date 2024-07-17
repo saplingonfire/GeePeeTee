@@ -56,6 +56,9 @@ function Scores() {
                 </div>
             );})}
           </div>
+          <div class='to-home'>
+            <a href='/'><button class='home-button'>{'Back to Home'}</button></a>
+          </div>
         </div>   
       ); 
 };

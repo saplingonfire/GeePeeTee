@@ -40,7 +40,7 @@ div#searchBar {
   height: 50px;
   display: flex;
   justify-content: center;
-  margin-bottom: 1em;
+  margin-bottom: 10px;
 }
 
 .form {
@@ -179,7 +179,6 @@ h3 {
 
 #esg-score-details {
   padding: 0;
-  height: 80%;
 }
 
 #esg-score-details>* {
@@ -189,7 +188,8 @@ h3 {
 }
 
 .home-button {
-  color:rgb(105, 105, 105);
+  color:#e7e0e0;;
+  background-color: rgba(217, 217, 217, 0.35);
 }
 
 .flex-row-space-between {
@@ -209,7 +209,8 @@ h3 {
   /* background-color: rgba(255, 255, 255, 0.75); */
   width: 90%;
   align-self: center;
-  max-height: 60%;
+  max-height: 50%;
+  margin-bottom: 20px;
   overflow-y: scroll;
 }
 
@@ -245,4 +246,22 @@ h3 {
 #companyList::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
+}
+
+.to-home {
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  justify-content: end;
+}
+
+#add-to-home {
+  margin: 2em;
+}
+
+#dsp-to-home {
+  color:rgb(105, 105, 105);
+  background-color: rgba(255, 255, 255, 0.5);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
