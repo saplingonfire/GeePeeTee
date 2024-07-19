@@ -45,14 +45,14 @@ function Scores() {
           </div>
           <div id="companyList">
             {documents.map((document, index) => {
-              const industry_label = industryList[document.data.industry];
+              const industry_label = industryList[document.industry];
               return (
                 <div key={index} className="card">
-                  <Link to='/DetailedScorePage' state={document.data}>
-                    <h2>{document.data.company}</h2>
+                  <Link to='/DetailedScorePage' state={document}>
+                    <h2>{document.company}</h2>
                   </Link>
                   <h3>{industry_label}</h3>
-                  <h2>{document.data.total_score}</h2>
+                  <h2>{document.total_score}</h2>
                 </div>
             );})}
           </div>
