@@ -265,3 +265,17 @@ h3 {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
+
+.error-msg {
+  align-self: center;
+  color: white;
+  font-family: 'Fredoka One';
+  font-style: normal;
+  font-weight: 40;
+}
+
+#dimension-scores {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
