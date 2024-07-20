@@ -5,7 +5,7 @@ import { industryList } from '../components/industrylist.jsx';
 
 
 function Scores() {
-    const endpoint = import.meta.env.VITE_MONGODB_ENDPOINT;
+    const endpoint = import.meta.env.VITE_MONGODB_ENDPOINT + "/action/find";
     const apiKey = import.meta.env.VITE_MONGODB_API_KEY;
 
     const [documents, setDocuments] = useState([]);
