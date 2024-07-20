@@ -81,6 +81,11 @@ export default function DetailedScorePage() {
                         <h1>ESG Score Breakdown</h1>
                         <h3>These are the company's scores in each ESG dimension</h3>
                         {RenderBarCharts(bar_chart_data)}
+                        <div id='dimension-scores'>
+                            <h2>{Math.round(companyScore.environmental.score / companyScore.environmental.dimension_total * 100)}/100</h2>
+                            <h2>{Math.round(companyScore.social.score / companyScore.social.dimension_total * 100)}/100</h2>
+                            <h2>{Math.round(companyScore.governance.score / companyScore.governance.dimension_total * 100)}/100</h2>
+                        </div>
                     </div>
                 </div>
             </div>

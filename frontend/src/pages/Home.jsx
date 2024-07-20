@@ -1,16 +1,49 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
-  const [searchQuery, setSearchQuery] = useState(''); // Initialize searchQuery state
 
-  const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
-  }
+  const endpoint = import.meta.env.VITE_MONGODB_ENDPOINT + "/action/findOne";
+  const apiKey = import.meta.env.VITE_MONGODB_API_KEY;
+  const navigate = useNavigate();
 
   const handleSearchClick = () => {
     event.preventDefault();
-    console.log(searchQuery); // Log the current searchQuery on click
+    const searchCompany = document.getElementById('searchBox').value;
+
+    const data = JSON.stringify({
+      "collection": "companyScores",
+      "database": "esgeepeetee_companies",
+      "dataSource": "ESGeePeeTee",
+      "filter": {
+        "company": searchCompany,
+      },
+    });
+
+    const config = {
+        method: 'post',
+        url: endpoint,
+        headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+        },
+        data: data,
+    }; 
+
+    axios(config)
+    .then((response) => {
+        // Access the array of documents directly from response.data
+        if (response.data.document !== null) {
+          navigate('/DetailedScorePage', {state: response.data.document});
+        } else {
+          alert("Couldn't find company. Have you entered the right name?");
+        }
+    })
+    .catch((error) => {
+        console.error(error);
+    });
   }
 
   return (
@@ -20,7 +53,7 @@ function Home() {
       </div>
       <div id="searchBar">
         <form className="form">
-          <input type='text' id='searchBox' class='inputBox' placeholder='Company Name' autoComplete='false' onChange={handleSearchChange} value={searchQuery} />
+          <input type='text' id='searchBox' autoComplete='off' className='inputBox' placeholder='Company Name' />
           <button id='searchBtn' onClick={handleSearchClick}>Search</button>
         </form>
       </div>

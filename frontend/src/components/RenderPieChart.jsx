@@ -30,6 +30,7 @@ const renderActiveShape = (props) => {
   const textAnchor = cos >= 0 ? "start" : "end";
 
   return (
+
     <g>
       <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
         {payload.name}
