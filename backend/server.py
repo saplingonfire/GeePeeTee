@@ -26,5 +26,9 @@ def receive_json():
     else:
         return jsonify({"message": "Request does not contain JSON data"}), 400
 
+@app.route('/', methods=['GET'])
+def hello():
+    return 'api server is up!'
+
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0', port=5000)
