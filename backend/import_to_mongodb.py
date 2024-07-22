@@ -68,14 +68,12 @@ def store_or_update_esg_scores(company_data):
 
 if __name__ == "__main__":
     # Example company data to update or store
-    company_data = {
-        'company': 'Apple Inc',
-        'industry': 'THQ',
-        'total_score': 47,
-        'environmental': {'score': 13, 'dimension_total': 35},
-        'social': {'score': 15, 'dimension_total': 30},
-        'governance': {'score': 19, 'dimension_total': 35},
-        'timestamp': '2024-07-18'
-    }
+    company_data = {'company': 'Boeing', 
+                    'industry': 'AIR', 
+                    'total_score': 22, 
+                    'environmental': {'score': 8, 'dimension_total': 35}, 
+                    'social': {'score': 8, 'dimension_total': 37}, 
+                    'governance': {'score': 6, 'dimension_total': 28}, 
+                    'timestamp': '2024-07-22'}
 
     store_or_update_esg_scores(company_data)

@@ -59,10 +59,10 @@ def score_company(company, industry):
         'company':company,
         'industry':industry,
         'total_score':sum(values[0] for values in component_scores.values()),
-        'environmental':{'score':component_scores['Environmental'][0], 'component_total':component_scores['Environmental'][1]},
-        'social':{'score':component_scores['Social'][0], 'component_total':component_scores['Social'][1]},
-        'governance':{'score':component_scores['Governance'][0], 'component_total':component_scores['Governance'][1]},
-        'analyzed_date':datetime.today().strftime('%Y-%m-%d')
+        'environmental':{'score':component_scores['Environmental'][0], 'dimension_total':component_scores['Environmental'][1]},
+        'social':{'score':component_scores['Social'][0], 'dimension_total':component_scores['Social'][1]},
+        'governance':{'score':component_scores['Governance'][0], 'dimension_total':component_scores['Governance'][1]},
+        'timestamp':datetime.today().strftime('%Y-%m-%d')
     }
     # print(f"ESG score: {sum(values[0] for values in component_scores.values())}")
     # print(component_scores)

@@ -19,6 +19,7 @@ def receive_json():
         try:
             # Run the external script and capture the output
             output = score_company(company,industry)
+            print(output)
             # return jsonify({"message": "JSON received and script executed!", "data": data, "script_output": output}), 200
             store_or_update_esg_scores(output)
             return output, 200
