@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS 
 from flask_sslify import SSLify
 from score_processing import score_company
+from import_to_mongodb import store_or_update_esg_scores
 
 app=Flask(__name__)
 sslify=SSLify(app)
@@ -19,6 +20,7 @@ def receive_json():
             # Run the external script and capture the output
             output = score_company(company,industry)
             # return jsonify({"message": "JSON received and script executed!", "data": data, "script_output": output}), 200
+            store_or_update_esg_scores(output)
             return output, 200
         except Exception as e:
             print(e)
