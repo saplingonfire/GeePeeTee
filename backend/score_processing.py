@@ -2,8 +2,24 @@ import requests
 import pandas as pd
 from datetime import datetime
 
+def transform(score):
+    # Curteis's Algo
+    if score < -0.5:
+        return 0 
+    elif score < 3.5:
+        return 60 
+    else:
+        return 100
+
+    # Minhan's Algo V2
+    # shifted_score = (max(min(score, 20),-20)*5+100)/2
+    # if shifted_score < 50:
+    #     return shifted_score*1.2
+    # else:
+    #     return shifted_score*0.8+20
+
 def process_tones(weight_arr):
-    normalized_tones = [0 if w <-0.5 else 60 if w <3.5 else 100 for w in weight_arr]
+    normalized_tones = [transform(score) for score in weight_arr]
     return sum(normalized_tones)/len(normalized_tones)
 
 def score_question(company, keywords):

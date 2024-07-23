@@ -66,7 +66,7 @@ export default function DetailedScorePage() {
                 </div>
                 <div id='esg-score-details'>
                     <div className='align-left' id='scorecard-column-1'>
-                        <h1>GeePeeTee ESG Score</h1>
+                        <h1>ESGeePeeTee Score</h1>
                         <h1 class='text-no-margin' id='esg-score'>{companyScore.total_score}</h1>
                         <h1 class='text-no-margin'>{esg_score_desc}</h1>
                         {RenderGauge(esg_score_category, companyScore.total_score)}

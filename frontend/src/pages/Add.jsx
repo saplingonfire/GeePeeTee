@@ -1,9 +1,12 @@
 import { industryList } from '../components/industrylist.jsx';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 function Add() {
-    
+    const [isLoading, setIsLoading] = useState(false);
     const backendEndpoint = import.meta.env.VITE_BACKEND_ENDPOINT;
     const apiPath = backendEndpoint + '/api/receive_json';
+    const navigate = useNavigate();
 
     const populateIndustries = () => {
         return Object.entries(industryList).map(([code, industry]) => (
@@ -13,6 +16,7 @@ function Add() {
 
     const handleAddCompany = async() => {
         event.preventDefault();
+        setIsLoading(true);
         const companyName = document.getElementById('addCompanyInput').value;
         const companyIndustry = document.getElementById('selectIndustry').value;
         if (!companyName) {
@@ -41,7 +45,9 @@ function Add() {
         }
         
         const data = await response.json();
-        console.log(data);
+        setIsLoading(false);
+        navigate('/DetailedScorePage', {state: data});
+        // console.log(data);
     };
 
     return (
@@ -62,6 +68,12 @@ function Add() {
             <div>
                 <a href='/' id='add-to-home'><button class='home-button'>{'Back to Home'}</button></a>
             </div>
+            {isLoading && 
+                <div id='loading-box'>
+                    <h1>Please wait for analysis to be complete</h1>
+                    <img id='loading-wheel' src="/src/assets/loading.gif"/>
+                </div>
+            }
         </> 
     )
 };
