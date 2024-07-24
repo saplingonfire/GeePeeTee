@@ -3,6 +3,8 @@ from flask_cors import CORS
 from flask_sslify import SSLify
 from score_processing import score_company
 from import_to_mongodb import store_or_update_esg_scores
+from model import get_prediction
+from model import dimension_score_company
 
 app=Flask(__name__)
 sslify=SSLify(app)
@@ -18,7 +20,8 @@ def receive_json():
         industry=data.get('industry')
         try:
             # Run the external script and capture the output
-            output = score_company(company,industry)
+            data = dimension_score_company(company,industry)
+            output = get_prediction(data)
             print(output)
             # return jsonify({"message": "JSON received and script executed!", "data": data, "script_output": output}), 200
             store_or_update_esg_scores(output)
@@ -34,4 +37,4 @@ def hello():
     return 'api server is up!'
 
 if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0', port=5000)
+    app.run(debug=True,host='0.0.0.0', port=1000)

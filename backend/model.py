@@ -31,8 +31,8 @@ def dimension_score_company(company, industry):
 
     total_tone ={}
     #Remember to change the file directory 
-    industry_df = pd.read_excel('../data/csa_weights_final.xlsx', sheet_name=industry, header=0)
-    keywords_df = pd.read_excel('../data/csa_weights_final.xlsx', sheet_name='CRITERIA', header=0)
+    industry_df = pd.read_excel('./csa_weights_final.xlsx', sheet_name=industry, header=0)
+    keywords_df = pd.read_excel('./csa_weights_final.xlsx', sheet_name='CRITERIA', header=0)
     keywords_dict = {row['Criteria']: row['Keywords'] for index, row in keywords_df.iterrows()}
 
     for index, row in industry_df.iterrows():
@@ -64,9 +64,9 @@ def dimension_score_company(company, industry):
     return data
 
 def model(dimension,data):
-    spredictor = TabularPredictor.load("S/AutogluonModels/ag-20240724_090019")
-    gpredictor = TabularPredictor.load("G/AutogluonModels/ag-20240724_085946")
-    epredictor = TabularPredictor.load("E/AutogluonModels/ag-20240724_085901")
+    spredictor = TabularPredictor.load("model/S/AutogluonModels/ag-20240724_090019")
+    gpredictor = TabularPredictor.load("model/G/AutogluonModels/ag-20240724_085946")
+    epredictor = TabularPredictor.load("model/E/AutogluonModels/ag-20240724_085901")
 
     if dimension == 'Environmental':
         predictor = epredictor
