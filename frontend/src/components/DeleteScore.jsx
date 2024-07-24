@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export function DeleteScore(companyName) {
+export async function DeleteScore(companyName) {
     const endpoint = import.meta.env.VITE_MONGODB_ENDPOINT + "/action/deleteOne";
     const apiKey = import.meta.env.VITE_MONGODB_API_KEY;
     const data = JSON.stringify({
@@ -22,7 +22,7 @@ export function DeleteScore(companyName) {
         data: data,
     };
 
-    axios(config)
+    await axios(config)
     .then((response) => {
         // Access the array of documents directly from response.data
         if (response.statusCode === 200) {

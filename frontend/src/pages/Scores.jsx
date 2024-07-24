@@ -40,8 +40,8 @@ function Scores() {
         });
     }, [])
 
-    const handleDelete = (companyName) => {
-      DeleteScore(companyName);
+    const handleDelete = async (companyName) => {
+      await DeleteScore(companyName);
       location.reload();
     };
     
@@ -68,8 +68,8 @@ function Scores() {
                   <h2>{industry_label}</h2>
                   <h2>{document.total_score}</h2>
                   <div className='card-company-actions'>
-                    <button className='transparent' onClick={() => handleReload(document.company, document.industry)}><img className='small-icon' src="./src/assets/refresh.png"/></button>
-                    <button className='transparent' onClick={() => handleDelete(document.company)}><img className='small-icon' src="./src/assets/delete.png"/></button>
+                    <button className='transparent' onClick={() => handleReload(document.company, document.industry)}><img className='small-icon' src=".\src\assets\refresh.png"/></button>
+                    <button className='transparent' onClick={() => handleDelete(document.company)}><img className='small-icon' src=".\src\assets\delete.png"/></button>
                   </div>
                 </div>
             );})}
