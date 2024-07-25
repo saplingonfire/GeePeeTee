@@ -3,7 +3,7 @@ from autogluon.tabular import TabularDataset, TabularPredictor
 import pandas as pd
 
 # Load your data
-train_df = pd.read_excel('../../data/Governance_esg_tone.xlsx')
+train_df = pd.read_excel('../data/Governance_esg_tone.xlsx')
 train_df['Governance_Score'] = train_df['Governance_Score'].astype(int)  # Ensure target variable is integer
 train_df.drop(columns =["company"])
 

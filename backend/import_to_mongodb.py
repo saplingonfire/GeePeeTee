@@ -57,7 +57,8 @@ def store_or_update_esg_scores(company_data):
                     print(f"Failed to update ESG scores for {company_data['company']}.")
             else:  # Company does not exist, insert new document
                 insert_response = requests.post(insert_url, headers=headers, json=insert_query)
-                if insert_response.status_code == 200:
+                print(insert_response.status_code)
+                if insert_response.status_code == 201:
                     print(f"Successfully inserted new ESG scores for {company_data['company']}.")
                 else:
                     print(f"Failed to insert new ESG scores for {company_data['company']}.")

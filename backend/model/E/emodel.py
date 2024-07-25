@@ -3,9 +3,9 @@ from autogluon.tabular import TabularDataset, TabularPredictor
 import pandas as pd
 
 # Load your data
-train_df = pd.read_excel('../../data/Environmental_esg_tone.xlsx')
+train_df = pd.read_excel('../data/Environmental_esg_tone.xlsx')
 train_df['Environmental_Score'] = train_df['Environmental_Score'].astype(int)  # Ensure target variable is integer
-# train_df.drop(columns =["company"])
+train_df.drop(columns =["company"])
 
 target = 'Environmental_Score'
 

@@ -26,7 +26,7 @@ def evaluate_model(y_true, y_pred):
 predictor = TabularPredictor.load("AutogluonModels/ag-20240724_085946")
 
 # Load data
-data = load_data('../../data/Governance_esg_tone.xlsx')
+data = load_data('../data/Governance_esg_tone.xlsx')
 
 
 # Separate features and target variable

@@ -23,10 +23,10 @@ def evaluate_model(y_true, y_pred):
     return mse, rmse, mae, r2
 
 # Load the saved model
-predictor = TabularPredictor.load("AutogluonModels/ag-20240724_085901")
+predictor = TabularPredictor.load("AutogluonModels/ag-20240725_071820")
 
 # Load data
-data = load_data('../../data/Environmental_esg_tone.xlsx')
+data = load_data('../data/Environmental_esg_tone.xlsx')
 
 
 # Separate features and target variable
