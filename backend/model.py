@@ -1,10 +1,8 @@
-from sklearn.model_selection import train_test_split
 from autogluon.tabular import TabularDataset, TabularPredictor
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import time
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import requests
 from datetime import datetime
 import json
@@ -42,7 +40,7 @@ def dimension_score_company(company, industry):
         dimension = row['Dimension']
 #         print(keywords, cweight)
         try:
-            print(f"Extracting tone of keyword {keywords} for {company}")
+            print(f"Extracting tones for keyword {criteria} in {dimension} dimension for {company}")
             question_points = score_question(company, keywords)
         except:
             question_points = []
@@ -51,9 +49,9 @@ def dimension_score_company(company, industry):
             total_tone[dimension] = [(keywords,cweight,question_points)]
         else:
             total_tone[dimension] += [(keywords,cweight,question_points)]
-
-    print("Tone Extraction Done")
     print("----------------------")
+    print("Tone Extraction Done")
+    
     data={
         'company':company,
         'industry':industry,
@@ -75,15 +73,8 @@ def model(dimension,data):
     else:
         predictor = gpredictor
 
-
-    start_time = time.time()
     new_predictions = predictor.predict(data)
-    end_time = time.time()
-    elapsed_time = end_time - start_time
-    # print(f"Prediction time: {elapsed_time:.4f} seconds")
-    # print()
-    # print(f"Prediction for {dimension} is",new_predictions.iloc[0])
-
+    
     return(new_predictions.iloc[0])
 
 def get_prediction(data):
@@ -94,7 +85,7 @@ def get_prediction(data):
     etones_string = json.dumps(data['Environmental'])
     environmental_df = pd.DataFrame({'company': data['company'],'Sector': data['industry'],'Tone_Array': etones_string}, index=[0])
     environment_score = model("Environmental",environmental_df)
-    print("Environmental Model Prediction Done")
+    # print("Environmental Model Prediction Done")
     
     sscore = 0
     for score in data['Social']:
@@ -102,7 +93,7 @@ def get_prediction(data):
     stones_string = json.dumps(data['Social'])
     social_df = pd.DataFrame({'company': data['company'],'Sector': data['industry'],'Tone_Array': stones_string}, index=[0])
     social_score = model("Social",social_df)
-    print("Social Model Prediction Done")
+    # print("Social Model Prediction Done")
     
     
     gscore = 0
@@ -111,7 +102,7 @@ def get_prediction(data):
     gtones_string = json.dumps(data['Governance'])
     governance_df = pd.DataFrame({'company': data['company'],'Sector': data['industry'],'Tone_Array': gtones_string}, index=[0])
     governance_score = model("Governance",governance_df)
-    print("Goverance Model Prediction Done")
+    # print("Goverance Model Prediction Done")
     
     
     

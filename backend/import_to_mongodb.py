@@ -66,6 +66,7 @@ def store_or_update_esg_scores(company_data):
             print(f"Failed to query MongoDB. Status code: {response.status_code}")
     except Exception as e:
         print(f"An error occurred: {e}")
+    print("----------------------")
 
 if __name__ == "__main__":
     # Example company data to update or store

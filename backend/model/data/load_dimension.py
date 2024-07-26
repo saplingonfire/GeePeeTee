@@ -74,7 +74,7 @@ def load_dimension_data(dimension_list,companies):
         dimensiontone_df = pd.DataFrame(list(filtered.items()), columns=['company', 'Tone_Array'])
         train_df = pd.merge(esg_df[['company','Sector',f'{dimension}_Score']],dimensiontone_df,on='company',how='inner')
         train_df.to_excel(f'{dimension}_esg_tone.xlsx',index=False)
-        print(f"Environmental DataFrame has been saved to '{dimension}_esg_tone.xlsx'")
+        print(f"{dimension} DataFrame has been saved to '{dimension}_esg_tone.xlsx'")
 
 dimension_list = ['Environmental','Social','Governance']
 dimension_list2 = ['Environmental']

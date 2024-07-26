@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS 
 from flask_sslify import SSLify
-from score_processing import score_company
 from import_to_mongodb import store_or_update_esg_scores
 from model import get_prediction
 from model import dimension_score_company
@@ -21,6 +20,7 @@ def receive_json():
         industry=data.get('industry')
         try:
             # Run the external script and capture the output
+            print("----------------------")
             print("Starting Prediction")
             start_time = time.time()
             data = dimension_score_company(company,industry)
