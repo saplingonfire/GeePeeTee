@@ -8,8 +8,8 @@ FRONTEND:<br />
   `VITE_MONGODB_ENDPOINT = <'YOUR MONGODB ENDPOINT HERE'>`<br />
   `VITE_MONGODB_API_KEY = <'YOUR MONGODB API KEY HERE'>`<br />
 BACKEND:<br />
-  `VITE_MONGODB_ENDPOINT = <'YOUR MONGODB ENDPOINT HERE'>`<br />
-  `VITE_MONGODB_API_KEY = <'YOUR MONGODB API KEY HERE'>`<br />
+  `MONGODB_ENDPOINT = <'YOUR MONGODB ENDPOINT HERE'>`<br />
+  `MONGODB_API_KEY = <'YOUR MONGODB API KEY HERE'>`<br />
 2. For folders E, S and G (hereby noted as 'dimension') in 'GeePeeTee/backend/model/dimension/AutogluonModels/ag-<somerandomnumber>/metadata.json', adjust these lines of code to your personal OS and Python version details:<br />
 `{`<br />
 `   "system": <"YOUR OS NAME HERE">,`<br />
