@@ -2,7 +2,7 @@
 ESGeePeeTee is an ESG analysis tool that incorporates almost-real-time news data from GDELT with AutoGluon, an Automated Multi-Layered Stack-Ensembling ML library, to provide powerful, unbiased and accurate ESG score prediction capabilities.
 
 For local deployment:<br />
-1. Download the codebase and create a .env file in the both frontend and backend folders with these lines of code:<br />
+1. Download the codebase and create a .env file in both the frontend and backend folders with these lines of code:<br />
 FRONTEND:<br />
   `VITE_BACKEND_ENDPOINT = <'YOUR BACKEND ENDPOINT HERE'>`<br />
   `VITE_MONGODB_ENDPOINT = <'YOUR MONGODB ENDPOINT HERE'>`<br />
